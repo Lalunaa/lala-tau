@@ -2,7 +2,5 @@ language: java
 sudo: false
 jdk:
   - oraclejdk9
-script:
-    -gradle assemble
-    -gradle build
+
     
