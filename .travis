@@ -1,1 +1,6 @@
 language: java
+jdk: oraclejdk9
+script:
+    -gradle assemble
+    -gradle build
+    -jdk_switcher use oraclejdk9
