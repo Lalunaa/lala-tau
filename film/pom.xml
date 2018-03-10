@@ -4,7 +4,7 @@
   <groupId>com.com.lala.app</groupId>
   <artifactId>film</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <packaging>jar</packaging>
   <name>film</name>
   <url>http://maven.apache.org</url>
   <properties>

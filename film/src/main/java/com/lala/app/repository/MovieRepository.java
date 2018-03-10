@@ -1,6 +1,7 @@
-package com.lala.app;
+package com.lala.app.repository;
 
 import java.util.List;
+import com.lala.app.domain.Movie;
 
 
 public interface MovieRepository {

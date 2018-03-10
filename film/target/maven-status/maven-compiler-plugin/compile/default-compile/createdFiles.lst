@@ -1,3 +1,3 @@
-com\lala\app\MovieRepository.class
-com\lala\app\Movie.class
-com\lala\app\MovieRepositoryFactory.class
+com\lala\app\domain\Movie.class
+com\lala\app\repository\MovieRepository.class
+com\lala\app\repository\MovieRepositoryFactory.class

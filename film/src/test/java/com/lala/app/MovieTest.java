@@ -4,6 +4,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import com.lala.app.repository.MovieRepository;
 import com.lala.app.repository.MovieRepositoryFactory;
+import com.lala.app.domain.Movie;
+
+import org.junit.Before;
 
 public class MovieTest {
     
@@ -24,7 +27,7 @@ public class MovieTest {
         movie1.setDirector("James Cameron");
 
         movie2.setId(1);
-        movie.setTitle("Nietykalni");
+        movie2.setTitle("Nietykalni");
         movie2.setYear(2011);
         movie2.setGenre("Dramat");
         movie2.setDirector("Olivier Nakache");
@@ -38,7 +41,7 @@ public class MovieTest {
     @Test
     public void getById() {
         int findId = 1;
-        assertNotNull(accountRepository.getById(findId));
+        assertNotNull(movieRepository.getById(findId));
     }
 
     @Test
@@ -61,13 +64,13 @@ public class MovieTest {
 
      @Test
     public void updateMovie() {
-        Movie movie = new Account();
+        Movie movie = new Movie();
         movie.setId(1);
         movie.setTitle("Titanic");
         movie.setYear(1997);
         movie.setGenre("Katastroficzny");
         movie.setDirector("James Cameron");
-        int idToUpdate = 1;
+        int updateId = 1;
         movieRepository.update(updateId, movie);
         assertEquals(movieRepository.getById(updateId).getTitle(), movie.getTitle());
 

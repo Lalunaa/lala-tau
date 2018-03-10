@@ -1,4 +1,4 @@
-package com.lala.app;
+package com.lala.app.domain;
 
 import java.util.ArrayList;
 
