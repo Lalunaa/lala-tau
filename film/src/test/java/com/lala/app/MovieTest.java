@@ -1,12 +1,15 @@
 package com.lala.app;
-
-import org.junit.Test;
-import static org.junit.Assert.*;
 import com.lala.app.repository.MovieRepository;
 import com.lala.app.repository.MovieRepositoryFactory;
 import com.lala.app.domain.Movie;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.junit.rules.ExpectedException;
+import org.hamcrest.CoreMatchers;
 import org.junit.Before;
+import org.junit.Test;
 
 public class MovieTest {
     
@@ -17,8 +20,7 @@ public class MovieTest {
 
         movieRepository = MovieRepositoryFactory.getInstance();
         Movie movie1 = new Movie();
-        Movie movie2 = new Movie();
-        
+        Movie movie2 = new Movie();        
 
         movie1.setId(1);
         movie1.setTitle("Titanic");
@@ -33,10 +35,8 @@ public class MovieTest {
         movie2.setDirector("Olivier Nakache");
 
         movieRepository.add(movie1);
-        movieRepository.add(movie2);
-        
+        movieRepository.add(movie2);        
     }
-
 
     @Test
     public void getById() {
@@ -59,7 +59,6 @@ public class MovieTest {
         movie.setDirector("James Cameron");
         movieRepository.add(movie);
         assertNotNull(movieRepository.getById(movie.getId()));
-
     }
 
      @Test
@@ -92,5 +91,16 @@ public class MovieTest {
         }
     }
    
+    @Test
+    public void getByTitle()
+    {
+        Movie movie = movieRepository.getByTitle("Titanic");
+        assertThat(movie.getTitle(), is("Titanic"));
+    }
+
+    @Test
+    public void introduce() {
+        assertThat("Hej, jestem CRUD!", CoreMatchers.containsString(MovieRepositoryFactory.getInstance().introduceYourself()));
+}
 
 }

@@ -9,7 +9,11 @@ public interface MovieRepository {
 
 public void initDatabase();
 
+String introduceYourself();
+
 public Movie getById(int id);
+
+public Movie getByTitle(String title);
 
 public List<Movie> getAll();
 
