@@ -1,26 +1,31 @@
 package com.lala.app;
 import com.lala.app.repository.MovieRepository;
 import com.lala.app.repository.MovieRepositoryFactory;
+import com.lala.app.repository.MovieRepositoryImpl;
 import com.lala.app.domain.Movie;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.rules.ExpectedException;
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
+
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class MovieTest {
     
     MovieRepository movieRepository;
 
     @Before
-    public void initRepository() {
-
+    public void initDatabase() {
+        
         movieRepository = MovieRepositoryFactory.getInstance();
         Movie movie1 = new Movie();
-        Movie movie2 = new Movie();        
+        Movie movie2 = new Movie();              
 
         movie1.setId(1);
         movie1.setTitle("Titanic");
@@ -28,20 +33,21 @@ public class MovieTest {
         movie1.setGenre("Katastroficzny");
         movie1.setDirector("James Cameron");
 
-        movie2.setId(1);
+        movie2.setId(2);
         movie2.setTitle("Nietykalni");
         movie2.setYear(2011);
         movie2.setGenre("Dramat");
         movie2.setDirector("Olivier Nakache");
 
-        movieRepository.add(movie1);
-        movieRepository.add(movie2);        
+        movieRepository.addMovie(movie1);
+        movieRepository.addMovie(movie2); 
+           
     }
 
     @Test
-    public void getById() {
+    public void getById() throws SQLException{
         int findId = 1;
-        assertNotNull(movieRepository.getById(findId));
+        assertNotNull(movieRepository.getById(findId).getId());
     }
 
     @Test
@@ -50,46 +56,42 @@ public class MovieTest {
     }
 
     @Test
-    public void addMovie() {
+    public void addMovie() throws SQLException{
         Movie movie = new Movie();
-        movie.setId(1);
-        movie.setTitle("Titanic");
-        movie.setYear(1997);
-        movie.setGenre("Katastroficzny");
-        movie.setDirector("James Cameron");
-        movieRepository.add(movie);
+        movie.setId(4);
+        movie.setTitle("Wyspa tajemnic");
+        movie.setYear(2010);
+        movie.setGenre("Dramat");
+        movie.setDirector("Martin Scorsese");
+        movieRepository.addMovie(movie);
         assertNotNull(movieRepository.getById(movie.getId()));
     }
 
-     @Test
-    public void updateMovie() {
-        Movie movie = new Movie();
-        movie.setId(1);
-        movie.setTitle("Titanic");
-        movie.setYear(1997);
-        movie.setGenre("Katastroficzny");
-        movie.setDirector("James Cameron");
-        int updateId = 1;
-        movieRepository.update(updateId, movie);
-        assertEquals(movieRepository.getById(updateId).getTitle(), movie.getTitle());
-
-        for (Movie movieFromList : movieRepository.getAll()) {
-            if (movieFromList.getId() == updateId) {
-                assertNotEquals(movieFromList.getTitle(), movie.getTitle());
-            }
-        }
+    @Test
+    public void updateMovie() throws SQLException{
+       
+        Movie movieTest = movieRepository.getById(3);
+        Movie movie5 = new Movie();
+        movie5.setTitle("Zielona mila");
+        movie5.setYear(1999);
+        movie5.setGenre("Dramat");
+        movie5.setDirector("Patric Ketch");
+        int updateId = movieRepository.getAll().get(0).getId();
+        movieRepository.updateMovie(updateId, movie5);
+        
+        assertEquals("Zielona mila", movieRepository.getByTitle("Zielona mila").getTitle());
+        
     }
 
     @Test
-    public void deleteMovie() {
+    public void deleteMovie() throws SQLException{
         Movie movie = movieRepository.getById(1);
-        movieRepository.delete(movie);
-        if (movieRepository.getAll().size() > 0) {
-            assertNotNull(movieRepository.getAll());
-        } else {
-            assertNull(movieRepository.getById(movie.getId()));
-        }
-    }
+        movieRepository.deleteMovie(movie);
+
+        assertNull(movieRepository.getById(1).getTitle());
+        assertFalse(movieRepository.getAll().isEmpty());
+
+}     
    
     @Test
     public void getByTitle()
@@ -99,8 +101,16 @@ public class MovieTest {
     }
 
     @Test
-    public void introduce() {
-        assertThat("Hej, jestem CRUD!", CoreMatchers.containsString(MovieRepositoryFactory.getInstance().introduceYourself()));
+    public void introduceYourself() throws SQLException{
+        assertNotNull(movieRepository.introduceYourself());
+        System.out.println(movieRepository.introduceYourself());
+    }
+
+
+@After
+    public void dropTable() throws SQLException {
+        movieRepository.dropDatatable();
 }
+
 
 }

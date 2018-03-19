@@ -10,12 +10,22 @@ public class Movie
     public String genre;
     public String director;      
 
+ public Movie(){}
+
+ public Movie(int id, String title, int year, String genre, String director) {
+        this.id = id;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.director = director;
+}
+
 
 public int getId() {
         return id;
     }
 
-    public void setId(int d) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -43,7 +53,7 @@ public int getId() {
         this.genre = genre;
     }
 
-    public String getDirextor() {
+    public String getDirector() {
         return director;
     }
 

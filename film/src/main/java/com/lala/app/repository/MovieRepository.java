@@ -3,25 +3,33 @@ package com.lala.app.repository;
 import java.util.List;
 import com.lala.app.domain.Movie;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public interface MovieRepository {
 
+String introduceYourself() throws SQLException;
 
-public void initDatabase();
 
-String introduceYourself();
+public void createTables() throws SQLException;
 
-public Movie getById(int id);
+public Connection getConnection();
+
+public void setConnection(Connection connection) throws SQLException;
+
+public Movie getById(int id) throws SQLException;
 
 public Movie getByTitle(String title);
 
 public List<Movie> getAll();
 
-public void add(Movie movie);
+public int addMovie(Movie movie);
 
-public void delete(Movie movie);
+public void deleteMovie(Movie movie) throws SQLException;
 
-public void update(int movieId, Movie movie);
+public int updateMovie(int prevMovieId, Movie newMovie) throws SQLException;
+
+public void dropDatatable() throws SQLException;
 
 
 }
