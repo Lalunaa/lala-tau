@@ -80,16 +80,14 @@ public class MovieTest {
         int updateId = 5;
         movieRepository.updateMovie(updateId, movie5);
         
-        for (Movie movie : movieRepository.getAll()) {
-            if (movie5.getTitle().equals(movieRepository.getById(updateId).getTitle())) {
+        for (Movie movie : movieRepository.getAll()) {            
                 if(updateId == movie.getId()){
                     assertEquals(movieRepository.getById(updateId).getTitle(), movie.getTitle());
                 }
                 else {
                     assertNotEquals(movieRepository.getById(updateId).getTitle(), movie.getTitle());
                 }
-            }    
-        }    
+            }            
     }
 
     @Test
@@ -101,7 +99,12 @@ public class MovieTest {
         assertFalse(movieRepository.getAll().isEmpty());
 
     }     
-   
+
+    public void getByTitle()
+    {
+        Movie movie = movieRepository.getByGenre("Katastroficzny");
+        assertThat(movie.getTitle(), is("Titanic"));
+        }
 
 
     @Test

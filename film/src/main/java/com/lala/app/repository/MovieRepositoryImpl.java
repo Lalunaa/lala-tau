@@ -21,6 +21,7 @@ public class MovieRepositoryImpl implements MovieRepository {
     private PreparedStatement getMovieByIdStmt;
     private PreparedStatement deleteTableStmt;
     private PreparedStatement getByTitleStmt;
+    private PreparedStatement getByGenreStmt;
 
     public MovieRepositoryImpl(Connection connection) throws SQLException {
         this.connection = connection;
@@ -116,6 +117,31 @@ public class MovieRepositoryImpl implements MovieRepository {
 		}
 		return movie;
     }
+
+    @Override
+	public Movie getByGenre(String genre) {
+		Movie movie = new Movie();
+		try
+		{
+			getByGenreStmt = connection.prepareStatement("SELECT * FROM Movie WHERE genre = ?" + genre + "'");
+			ResultSet rs = getByGenreStmt.executeQuery();
+
+			while(rs.next())
+			{
+				movie.setId(rs.getInt("id"));
+                movie.setTitle(rs.getString("title"));
+                movie.setYear(rs.getInt("year"));
+                movie.setGenre(rs.getString("genre"));
+                movie.setDirector(rs.getString("director"));
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return movie;
+    }
+
 
     @Override
     public List<Movie> getAll() {

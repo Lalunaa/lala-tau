@@ -21,6 +21,8 @@ public Movie getById(int id) throws SQLException;
 
 public Movie getByTitle(String title);
 
+public Movie getByGenre(String genre);
+
 public List<Movie> getAll();
 
 public int addMovie(Movie movie);
