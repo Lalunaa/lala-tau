@@ -1,4 +1,4 @@
 language: java
 script:
-- cd film; mvn test
-    
+- cd film; mvn test; bash scripts/server.sh
+
