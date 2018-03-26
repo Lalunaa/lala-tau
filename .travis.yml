@@ -3,6 +3,6 @@ language: java
 before_script:
 - bash scripts/server.sh
 script:
--  mvn test
+-  cd film/mvn test
 
 
