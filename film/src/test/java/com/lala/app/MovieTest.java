@@ -70,17 +70,26 @@ public class MovieTest {
     @Test
     public void updateMovie() throws SQLException{
        
-        Movie movieTest = movieRepository.getById(3);
+        
         Movie movie5 = new Movie();
+        
         movie5.setTitle("Zielona mila");
         movie5.setYear(1999);
         movie5.setGenre("Dramat");
         movie5.setDirector("Patric Ketch");
-        int updateId = movieRepository.getAll().get(0).getId();
+        int updateId = 5;
         movieRepository.updateMovie(updateId, movie5);
         
-        assertEquals("Zielona mila", movieRepository.getByTitle("Zielona mila").getTitle());
-        
+        for (Movie movie : movieRepository.getAll()) {
+            if (movie5.getTitle().equals(movieRepository.getById(updateId).getTitle())) {
+                if(updateId == movie.getId()){
+                    assertEquals(movieRepository.getById(updateId).getTitle(), movie.getTitle());
+                }
+                else {
+                    assertNotEquals(movieRepository.getById(updateId).getTitle(), movie.getTitle());
+                }
+            }    
+        }    
     }
 
     @Test
@@ -91,14 +100,9 @@ public class MovieTest {
         assertNull(movieRepository.getById(1).getTitle());
         assertFalse(movieRepository.getAll().isEmpty());
 
-}     
+    }     
    
-    @Test
-    public void getByTitle()
-    {
-        Movie movie = movieRepository.getByTitle("Titanic");
-        assertThat(movie.getTitle(), is("Titanic"));
-    }
+
 
     @Test
     public void introduceYourself() throws SQLException{
@@ -107,10 +111,9 @@ public class MovieTest {
     }
 
 
-@After
+    @After
     public void dropTable() throws SQLException {
         movieRepository.dropDatatable();
-}
-
+    } 
 
 }

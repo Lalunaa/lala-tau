@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="com.lala.app.MovieTest" time="1.094" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="com.lala.app.MovieTest" time="1.777" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="9.0.4+11"/>
@@ -29,7 +29,7 @@
     <property name="os.name" value="Windows 7"/>
     <property name="classworlds.conf" value="C:\LALA\PROGRAMY\Maven\bin\..\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1250"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-9.0.4\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\ProgramData\Oracle\Java\javapath;C:\opencv\build\x64\vc14\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\LALA\PROGRAMY\Maven\bin;C:\LALA\PROGRAMY\Git bash\cmd;C:\LALA\PROGRAMY\Microsoft VS Code\bin;C:\Users\Lala\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-9.0.4\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Windows\System32;C:\LALA\PROGRAMY\Maven\bin;C:\Program Files\Java\jdk-9.0.4\bin;C:\Program Files\Java\jre-9.0.4\bin;C:\Program Files\Java\jre1.8.0_151\bin;C:\Program Files\Java;C:\LALA\PROGRAMY\Maven\bin;C:\ProgramData\Git;C:\LALA\PROGRAMY\Git bash\cmd;C:\LALA\PROGRAMY\Microsoft VS Code\bin;C:\Users\Lala\AppData\Local\GitHubDesktop\bin;."/>
     <property name="maven.conf" value="C:\LALA\PROGRAMY\Maven\bin\../conf"/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="53.0"/>
@@ -64,11 +64,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.lala.app.MovieTest" name="introduceYourself" time="0.373"/>
-  <testcase classname="com.lala.app.MovieTest" name="addMovie" time="0.11"/>
-  <testcase classname="com.lala.app.MovieTest" name="getAll" time="0.115"/>
-  <testcase classname="com.lala.app.MovieTest" name="deleteMovie" time="0.105"/>
-  <testcase classname="com.lala.app.MovieTest" name="updateMovie" time="0.109"/>
-  <testcase classname="com.lala.app.MovieTest" name="getById" time="0.109"/>
-  <testcase classname="com.lala.app.MovieTest" name="getByTitle" time="0.173"/>
+  <testcase classname="com.lala.app.MovieTest" name="introduceYourself" time="0.634"/>
+  <testcase classname="com.lala.app.MovieTest" name="addMovie" time="0.132"/>
+  <testcase classname="com.lala.app.MovieTest" name="getAll" time="0.109"/>
+  <testcase classname="com.lala.app.MovieTest" name="deleteMovie" time="0.318"/>
+  <testcase classname="com.lala.app.MovieTest" name="updateMovie" time="0.444"/>
+  <testcase classname="com.lala.app.MovieTest" name="getById" time="0.14"/>
 </testsuite>

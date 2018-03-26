@@ -98,7 +98,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 		Movie movie = new Movie();
 		try
 		{
-			getByTitleStmt = connection.prepareStatement("SELECT * FROM Movie WHERE title= '" + title + "'");
+			getByTitleStmt = connection.prepareStatement("SELECT * FROM Movie WHERE title = ?" + title + "'");
 			ResultSet rs = getByTitleStmt.executeQuery();
 
 			while(rs.next())
@@ -166,11 +166,12 @@ public class MovieRepositoryImpl implements MovieRepository {
 	public int updateMovie(int prevMovieId, Movie newMovie) throws SQLException {
         int count = 0;
         try {
+            updateMovieStmt.setInt(5, prevMovieId);
             updateMovieStmt.setString(1, newMovie.getTitle());
             updateMovieStmt.setInt(2, newMovie.getYear());
             updateMovieStmt.setString(3, newMovie.getGenre());
             updateMovieStmt.setString(4, newMovie.getDirector());
-            updateMovieStmt.setInt(5, prevMovieId);
+            
             count = updateMovieStmt.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
