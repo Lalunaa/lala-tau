@@ -1,4 +1,8 @@
 language: java
+
+before_script:
+- bash scripts/server.sh
 script:
-- cd film; mvn test; bash scripts/server.sh
+-  mvn test
+
 
