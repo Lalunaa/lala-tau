@@ -2,6 +2,8 @@ package com.lala.app.repository;
 
 import com.lala.app.domain.Movie;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 public class MovieRepositoryImpl implements MovieRepository {
 
     private Connection connection;
@@ -48,6 +51,9 @@ public class MovieRepositoryImpl implements MovieRepository {
         }
     }
 
+    public MovieRepositoryImpl() throws SQLException {
+            }
+
     @Override
     public int addMovie(Movie movie) {
         int count = 0;
@@ -64,11 +70,11 @@ public class MovieRepositoryImpl implements MovieRepository {
     }
     
 	@Override
-	public void deleteMovie(Movie movie) throws SQLException{
+	public int deleteMovie(Movie movie) throws SQLException{
        
         
             deleteMovieStmt.setInt(1, movie.getId());
-             deleteMovieStmt.executeUpdate();
+            return deleteMovieStmt.executeUpdate();
         
         
 	}
@@ -189,10 +195,10 @@ public class MovieRepositoryImpl implements MovieRepository {
 	}
 
 	@Override
-	public int updateMovie(int prevMovieId, Movie newMovie) throws SQLException {
+	public int updateMovie(int updateId, Movie newMovie)  {
         int count = 0;
         try {
-            updateMovieStmt.setInt(5, prevMovieId);
+            updateMovieStmt.setInt(5, updateId);
             updateMovieStmt.setString(1, newMovie.getTitle());
             updateMovieStmt.setInt(2, newMovie.getYear());
             updateMovieStmt.setString(3, newMovie.getGenre());

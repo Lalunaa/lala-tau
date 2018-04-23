@@ -12,10 +12,16 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 
-
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.junit.Ignore;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
+import static org.mockito.Mockito.*;
+
+
+@RunWith(JUnit4.class)
 public class MovieTest {
     
     MovieRepository movieRepository;
@@ -44,6 +50,7 @@ public class MovieTest {
            
     }
 
+    
     @Test
     public void getById() throws SQLException{
         int findId = 1;
@@ -100,11 +107,12 @@ public class MovieTest {
 
     }     
 
+    /*@Test
     public void getByTitle()
     {
         Movie movie = movieRepository.getByGenre("Katastroficzny");
         assertThat(movie.getTitle(), is("Titanic"));
-        }
+    }*/
 
 
     @Test
@@ -114,9 +122,9 @@ public class MovieTest {
     }
 
 
-    @After
+    /*@After
     public void dropTable() throws SQLException {
         movieRepository.dropDatatable();
-    } 
+    } */
 
 }

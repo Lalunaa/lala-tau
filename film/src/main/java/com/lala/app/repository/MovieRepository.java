@@ -27,9 +27,9 @@ public List<Movie> getAll();
 
 public int addMovie(Movie movie);
 
-public void deleteMovie(Movie movie) throws SQLException;
+public int deleteMovie(Movie movie) throws SQLException;
 
-public int updateMovie(int prevMovieId, Movie newMovie) throws SQLException;
+public int updateMovie(int updateId, Movie newMovie);
 
 public void dropDatatable() throws SQLException;
 
