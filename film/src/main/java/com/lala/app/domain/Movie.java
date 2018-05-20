@@ -2,26 +2,25 @@ package com.lala.app.domain;
 
 import java.util.ArrayList;
 
-public class Movie
-{
+public class Movie {
     public int id;
     public String title;
-    public int year;    
+    public int year;
     public String genre;
-    public String director;      
+    public String director;
 
- public Movie(){}
+    public Movie() {
+    }
 
- public Movie(int id, String title, int year, String genre, String director) {
+    public Movie(int id, String title, int year, String genre, String director) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
         this.director = director;
-}
+    }
 
-
-public int getId() {
+    public int getId() {
         return id;
     }
 
@@ -59,5 +58,19 @@ public int getId() {
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Movie other = (Movie) o;
+        boolean ret = other.getTitle().equals(this.getTitle()) && (other.getId() == this.getId())
+                && (other.getYear() == this.getYear()) && (other.getGenre() == this.getGenre())
+                && (other.getDirector() == this.getDirector());
+        return ret;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + id + ", " + title + ", " + year + ", " + genre + ", " + director + "]";
     }
 }
