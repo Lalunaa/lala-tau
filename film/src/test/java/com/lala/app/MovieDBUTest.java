@@ -9,6 +9,7 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import com.lala.app.repository.MovieRepositoryImpl;
@@ -18,6 +19,7 @@ import com.lala.app.repository.MovieRepositoryImpl;
 @Suite.SuiteClasses({
         MovieDBUnitTest.class
 })
+//@Ignore
 public class MovieDBUTest {
 
     @BeforeClass

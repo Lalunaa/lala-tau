@@ -48,13 +48,13 @@ public class MovieApi {
     }
 
     @RequestMapping(value = "/film/{id}", method = RequestMethod.DELETE)
-    public Long deleteMovie(@PathVariable("id") int id) throws SQLException {
+    public Long deleteMovie(@PathVariable("id") Long id) throws SQLException {
         movieRepository = MovieRepositoryFactory.getInstance();
-        return new Long(movieRepository.deleteMovie(movieRepository.getById(id)));
+        return new Long(movieRepository.deleteMovie(id));
     }
 
     @RequestMapping(value = "/film/{id}", method = RequestMethod.PUT)
-    public Long updateMovie(@PathVariable("id") int id, @RequestBody Movie m) throws SQLException {
+    public Long updateMovie(@PathVariable("id") Long id, @RequestBody Movie m) throws SQLException {
         movieRepository = MovieRepositoryFactory.getInstance();
         return new Long(movieRepository.updateMovie(id, m));
     }

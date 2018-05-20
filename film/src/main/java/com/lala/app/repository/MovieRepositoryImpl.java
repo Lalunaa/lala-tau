@@ -79,10 +79,10 @@ public class MovieRepositoryImpl implements MovieRepository {
     }
 
     @Override
-    public int deleteMovie(int id) throws SQLException {
+    public int deleteMovie(long id) throws SQLException {
         int count = 0;
         try {
-            deleteMovieStmt.setInt(1, id);
+            deleteMovieStmt.setLong(1, id);
             count = deleteMovieStmt.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
@@ -92,10 +92,10 @@ public class MovieRepositoryImpl implements MovieRepository {
     }
 
     @Override
-    public Movie getById(int id) throws SQLException {
+    public Movie getById(long id) throws SQLException {
         Movie movie = new Movie();
         try {
-            getMovieByIdStmt.setInt(1, id);
+            getMovieByIdStmt.setLong(1, id);
             ResultSet rs = getMovieByIdStmt.executeQuery();
 
             while (rs.next()) {
@@ -197,10 +197,10 @@ public class MovieRepositoryImpl implements MovieRepository {
     }
 
     @Override
-    public int updateMovie(int updateId, Movie newMovie) {
+    public int updateMovie(long updateId, Movie newMovie) {
         int count = 0;
         try {
-            updateMovieStmt.setInt(5, updateId);
+            updateMovieStmt.setLong(5, updateId);
             updateMovieStmt.setString(1, newMovie.getTitle());
             updateMovieStmt.setInt(2, newMovie.getYear());
             updateMovieStmt.setString(3, newMovie.getGenre());

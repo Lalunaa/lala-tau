@@ -1,13 +1,25 @@
 package com.lala.app.domain;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+
+@Entity
+@NamedQueries({ 
+	@NamedQuery(name = "movie.all", query = "Select m from Movie m"),
+	@NamedQuery(name = "movie.byTitle", query = "Select m from Movie m where m.title = :title")
+})
+
 
 public class Movie {
-    public int id;
+    public int  id;
     public String title;
     public int year;
     public String genre;
     public String director;
+    private List<Ticket> tickets;
+    
 
     public Movie() {
     }
@@ -20,7 +32,9 @@ public class Movie {
         this.director = director;
     }
 
-    public int getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int  getId() {
         return id;
     }
 
@@ -28,6 +42,7 @@ public class Movie {
         this.id = id;
     }
 
+    @Column(unique = true, nullable = false)
     public String getTitle() {
         return title;
     }
@@ -73,4 +88,16 @@ public class Movie {
     public String toString() {
         return "[" + id + ", " + title + ", " + year + ", " + genre + ", " + director + "]";
     }
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //@OneToMany(orphanRemoval=true)
+    //@JoinColumn(name="OWNER")
+	public List<Ticket> getTicket() {
+		return tickets;
+	}
+	public void setTicket(List<Ticket> tickets) {
+		this.tickets = tickets;
+}
+
+
 }

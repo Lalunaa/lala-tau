@@ -15,6 +15,7 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -23,7 +24,9 @@ import com.lala.app.domain.Movie;
 import com.lala.app.repository.MovieRepository;
 import com.lala.app.repository.MovieRepositoryImpl;
 
+//@Ignore
 @RunWith(JUnit4.class)
+
 public class MovieDBUnitTest extends DBTestCase
 {
 
@@ -92,7 +95,7 @@ public class MovieDBUnitTest extends DBTestCase
      public void checkDeleting() throws Exception
      {
                   
-         assertEquals(1, movieRepository.deleteMovie(2));
+         assertEquals(1, movieRepository.deleteMovie((long)2));
          IDataSet dbDataSet = this.getConnection().createDataSet();
          ITable actuaTable = dbDataSet.getTable("MOVIE");
          ITable filteredTable = DefaultColumnFilter.excludedColumnsTable(actuaTable, new String[] {"ID"});

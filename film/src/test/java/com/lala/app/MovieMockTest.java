@@ -69,7 +69,7 @@ public class MovieMockTest {
         when(addMovieStmt.executeUpdate()).thenReturn(1);
 
         Movie movie = new Movie();
-        movie.setId(1);
+        movie.setId((long)1);
         movie.setTitle("Titanic");
         movie.setYear(1997);
         movie.setGenre("Katastroficzny");
@@ -150,14 +150,14 @@ public class MovieMockTest {
     public void checkDeleting() throws Exception {
         when(deleteMovieStmt.executeUpdate()).thenReturn(1);
         Movie movie = new Movie();
-        movie.setId(1);
+        movie.setId((long)1);
         movie.setTitle("Incepcja");
         movie.setYear(2010);
         movie.setGenre("Surrealistyczny");
         movie.setDirector("Christopher Nolan");
 
         assertEquals(1, movieRepository.deleteMovie(movie.getId()));
-        verify(deleteMovieStmt, times(1)).setInt(1, movie.getId());
+        verify(deleteMovieStmt, times(1)).setLong(1, movie.getId());
         verify(deleteMovieStmt).executeUpdate();
     }
 
@@ -165,7 +165,7 @@ public class MovieMockTest {
     public void checkUpdate() throws Exception {
         when(updateMovieStmt.executeUpdate()).thenReturn(1);
         Movie movie = new Movie();
-        movie.setId(1);
+        movie.setId((long)1);
         movie.setTitle("Incepcja");
         movie.setYear(2010);
         movie.setGenre("Surrealistyczny");

@@ -17,7 +17,7 @@ public Connection getConnection();
 
 public void setConnection(Connection connection) throws SQLException;
 
-public Movie getById(int id) throws SQLException;
+public Movie getById(long id) throws SQLException;
 
 public Movie getByTitle(String title);
 
@@ -27,9 +27,9 @@ public List<Movie> getAll();
 
 public int addMovie(Movie movie);
 
-public int deleteMovie(int id) throws SQLException;
+public int deleteMovie(long id) throws SQLException;
 
-public int updateMovie(int updateId, Movie newMovie);
+public int updateMovie(long updateId, Movie newMovie);
 
 public void dropDatatable() throws SQLException;
 
