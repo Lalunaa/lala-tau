@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="com.lala.app.MovieDBUTest" time="2.996" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="com.lala.app.MovieDBUTest" time="3.128" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="9.0.4+11"/>
@@ -65,9 +65,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkDeleting" time="0.787"/>
-  <testcase classname="com.lala.app.MovieDBUnitTest" name="doNothing" time="0.392"/>
-  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkUpdating" time="0.693"/>
-  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkAdding" time="0.689"/>
-  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkGet" time="0.435"/>
+  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkDeleting" time="0.896"/>
+  <testcase classname="com.lala.app.MovieDBUnitTest" name="doNothing" time="0.471"/>
+  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkUpdating" time="0.699"/>
+  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkAdding" time="0.602"/>
+  <testcase classname="com.lala.app.MovieDBUnitTest" name="checkGet" time="0.46"/>
 </testsuite>
