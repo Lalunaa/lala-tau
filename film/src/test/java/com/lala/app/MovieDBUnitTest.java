@@ -24,7 +24,7 @@ import com.lala.app.domain.Movie;
 import com.lala.app.repository.MovieRepository;
 import com.lala.app.repository.MovieRepositoryImpl;
 
-//@Ignore
+@Ignore
 @RunWith(JUnit4.class)
 
 public class MovieDBUnitTest extends DBTestCase
@@ -72,7 +72,7 @@ public class MovieDBUnitTest extends DBTestCase
         Assertion.assertEquals(expectedTable, filteredTable);
         
            
-        int id = movieRepository.getByTitle("Siedem dusz").getId();
+        long id = movieRepository.getByTitle("Siedem dusz").getId();
         movieRepository.deleteMovie(id);
     }
 

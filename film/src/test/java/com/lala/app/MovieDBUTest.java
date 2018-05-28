@@ -19,7 +19,7 @@ import com.lala.app.repository.MovieRepositoryImpl;
 @Suite.SuiteClasses({
         MovieDBUnitTest.class
 })
-//@Ignore
+@Ignore
 public class MovieDBUTest {
 
     @BeforeClass
@@ -35,7 +35,7 @@ public class MovieDBUTest {
         JdbcDatabaseTester databaseTester = new PropertiesBasedJdbcDatabaseTester();
 
         FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(
-           MovieDBUTest.class.getClassLoader().
+            MovieDBUTest.class.getClassLoader().
                         getResource("ds-0.xml").openStream());
 
         //databaseTester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT);

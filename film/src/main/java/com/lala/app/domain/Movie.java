@@ -13,7 +13,7 @@ import javax.persistence.*;
 
 
 public class Movie {
-    public int  id;
+    public Long  id;
     public String title;
     public int year;
     public String genre;
@@ -24,7 +24,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int id, String title, int year, String genre, String director) {
+    public Movie(Long id, String title, int year, String genre, String director) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -34,11 +34,11 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int  getId() {
+    public Long  getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

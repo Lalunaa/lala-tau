@@ -99,7 +99,7 @@ public class MovieRepositoryImpl implements MovieRepository {
             ResultSet rs = getMovieByIdStmt.executeQuery();
 
             while (rs.next()) {
-                movie.setId(rs.getInt("id"));
+                movie.setId(rs.getLong("id"));
                 movie.setTitle(rs.getString("title"));
                 movie.setYear(rs.getInt("year"));
                 movie.setGenre(rs.getString("genre"));
@@ -116,11 +116,12 @@ public class MovieRepositoryImpl implements MovieRepository {
     public Movie getByTitle(String title) {
         Movie movie = new Movie();
         try {
-            getByTitleStmt = connection.prepareStatement("SELECT * FROM Movie WHERE title = ?" + title + "'");
+            getByTitleStmt = connection.prepareStatement("SELECT * FROM Movie WHERE title = ?");
+            getByTitleStmt.setString(1, title);
             ResultSet rs = getByTitleStmt.executeQuery();
 
             while (rs.next()) {
-                movie.setId(rs.getInt("id"));
+                movie.setId(rs.getLong("id"));
                 movie.setTitle(rs.getString("title"));
                 movie.setYear(rs.getInt("year"));
                 movie.setGenre(rs.getString("genre"));
@@ -140,7 +141,7 @@ public class MovieRepositoryImpl implements MovieRepository {
             ResultSet rs = getByGenreStmt.executeQuery();
 
             while (rs.next()) {
-                movie.setId(rs.getInt("id"));
+                movie.setId(rs.getLong("id"));
                 movie.setTitle(rs.getString("title"));
                 movie.setYear(rs.getInt("year"));
                 movie.setGenre(rs.getString("genre"));
@@ -160,7 +161,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
             while (rs.next()) {
                 Movie movie = new Movie();
-                movie.setId(rs.getInt("id"));
+                movie.setId(rs.getLong("id"));
                 movie.setTitle(rs.getString("title"));
                 movie.setYear(rs.getInt("year"));
                 movie.setGenre(rs.getString("genre"));

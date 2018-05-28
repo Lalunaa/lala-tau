@@ -18,18 +18,18 @@ import javax.persistence.NamedQuery;
 })
 public class Ticket {
 
-	private int id;
+	private Long id;
 	private String type;
 	private int price;
 	private Boolean sold = false;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

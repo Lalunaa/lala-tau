@@ -33,13 +33,13 @@ public class MovieTest {
         Movie movie1 = new Movie();
         Movie movie2 = new Movie();              
 
-        movie1.setId(1);
+        movie1.setId((long)1);
         movie1.setTitle("Titanic");
         movie1.setYear(1997);
         movie1.setGenre("Katastroficzny");
         movie1.setDirector("James Cameron");
 
-        movie2.setId(2);
+        movie2.setId((long)2);
         movie2.setTitle("Nietykalni");
         movie2.setYear(2011);
         movie2.setGenre("Dramat");
@@ -65,7 +65,7 @@ public class MovieTest {
     @Test
     public void addMovie() throws SQLException{
         Movie movie = new Movie();
-        movie.setId(4);
+        movie.setId((long)4);
         movie.setTitle("Wyspa tajemnic");
         movie.setYear(2010);
         movie.setGenre("Dramat");
@@ -84,7 +84,7 @@ public class MovieTest {
         movie5.setYear(1999);
         movie5.setGenre("Dramat");
         movie5.setDirector("Patric Ketch");
-        int updateId = 5;
+        long updateId = 5;
         movieRepository.updateMovie(updateId, movie5);
         
         for (Movie movie : movieRepository.getAll()) {            

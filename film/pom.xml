@@ -17,18 +17,34 @@
 		<dbunit.version>2.5.3</dbunit.version>
 	</properties>
 	<dependencies>
+	
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    
+</dependency>
+	<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+
+	<dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
 			<version>6.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -197,11 +213,11 @@
 			<version>3.2.0.Final</version>
 		</dependency> 
 		<!-- if we need JPA -->
-		<!-- <dependency>
+		 <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${org.hibernate.version}</version>
-		</dependency> -->
+		</dependency>
 		<!-- Hibernate uses this logging Facade,
 		 be careful with the version number ! -->
 		<dependency>
@@ -240,6 +256,7 @@
 			<artifactId>spring-test-dbunit</artifactId>
 			<version>1.1.0</version>
 </dependency>
+
 		</dependencies>
 	<build>
 		<plugins>
@@ -254,6 +271,19 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*Stories.java</include>
+		</includes>
+		 </configuration>
+		</plugin>
+		
 
 			<!-- Embedded Jetty (jetty:run) -->
 			<plugin>
@@ -270,4 +300,3 @@
 		</plugins>
 	</build>
 </project>
-
