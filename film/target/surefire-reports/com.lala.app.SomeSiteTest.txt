@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.lala.app.SomeSiteTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 54.43 sec - in com.lala.app.SomeSiteTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 54.215 sec - in com.lala.app.SomeSiteTest
