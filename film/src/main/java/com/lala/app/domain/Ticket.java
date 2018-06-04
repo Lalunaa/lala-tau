@@ -1,8 +1,5 @@
 package com.lala.app.domain;
 
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,7 +34,7 @@ public class Ticket {
 		return type;
 	}
 
-	public void setType(String make) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

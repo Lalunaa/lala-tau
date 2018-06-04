@@ -4,5 +4,17 @@ before_script:
 - bash scripts/server.sh
 script:
 -  cd film; mvn test
+ - whereis google-chrome-stable
+  - whereis chromedriver
+addons: # get google-chrome-stable
+chrome: stable
+install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
+  - wget -N https://chromedriver.storage.googleapis.com/2.38/chromedriver_win32.zip -P ~/
+  - unzip ~/chromedriver_win32.zip -d ~/
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+ 
+ 
 
 

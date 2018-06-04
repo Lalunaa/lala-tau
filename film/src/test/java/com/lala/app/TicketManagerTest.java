@@ -1,19 +1,15 @@
 package com.lala.app;
 
 import static org.junit.Assert.assertEquals;
-
 import java.util.List;
-
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.lala.app.domain.Movie;
 import com.lala.app.domain.Ticket;
 import com.lala.app.repository.TicketManager;

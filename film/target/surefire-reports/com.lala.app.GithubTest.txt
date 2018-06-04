@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.lala.app.GithubTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.326 sec <<< FAILURE! - in com.lala.app.GithubTest
+com.lala.app.GithubTest  Time elapsed: 0.326 sec  <<< ERROR!
+java.lang.IllegalStateException: The driver executable does not exist: C:\Users\Marta Siejka\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin\phantomjs.exe
+	at com.lala.app.GithubTest.driverSetup(GithubTest.java:33)
+
+com.lala.app.GithubTest  Time elapsed: 0.326 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.lala.app.GithubTest.cleanp(GithubTest.java:38)
+

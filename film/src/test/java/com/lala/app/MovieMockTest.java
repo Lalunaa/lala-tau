@@ -1,8 +1,6 @@
 package com.lala.app;
 
 import com.lala.app.repository.MovieRepository;
-import com.lala.app.repository.MovieRepositoryFactory;
-import com.lala.app.repository.MovieRepositoryImpl;
 import com.lala.app.domain.Movie;
 
 import org.junit.runner.RunWith;

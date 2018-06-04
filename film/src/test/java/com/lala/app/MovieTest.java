@@ -1,24 +1,16 @@
 package com.lala.app;
+
 import com.lala.app.repository.MovieRepository;
 import com.lala.app.repository.MovieRepositoryFactory;
-import com.lala.app.repository.MovieRepositoryImpl;
 import com.lala.app.domain.Movie;
-
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.junit.rules.ExpectedException;
 import org.junit.Before;
-import org.junit.After;
-import org.junit.Test;
-
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import static org.mockito.Mockito.*;
 
 @Ignore
 @RunWith(JUnit4.class)

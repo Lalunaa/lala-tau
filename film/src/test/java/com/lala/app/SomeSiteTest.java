@@ -7,13 +7,12 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.Random;
-
 import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
+@Ignore
 public class SomeSiteTest {
 	private WebDriver driver;
 	private String baseUrl;
@@ -26,9 +25,10 @@ public class SomeSiteTest {
 		driver = new ChromeDriver();
 		baseUrl = "http://automationpractice.com/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    ;
 		
 	}
-	@Ignore
+	
 	@Test
 	public void registerTest() throws Exception {
 
@@ -120,7 +120,7 @@ public class SomeSiteTest {
 		Thread.sleep(500);
 		assertEquals(true, driver.findElement(By.cssSelector("div.col-sm-6:nth-child(1) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1) > span:nth-child(2)")).isDisplayed());
 	}
-
+	@Ignore
 	@Test
 	public void registerTestFailed() throws Exception {
 
@@ -220,7 +220,7 @@ public class SomeSiteTest {
 			fail(verificationErrorString);
 		}
 	}
-
+/*
 	private boolean isElementPresent(By by) {
 		try {
 			driver.findElement(by);
@@ -253,4 +253,5 @@ public class SomeSiteTest {
 			acceptNextAlert = true;
 		}
 	}
+	*/
 }

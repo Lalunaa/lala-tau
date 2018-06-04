@@ -2,12 +2,10 @@ package com.lala.helper;
 
 import java.io.FileOutputStream;
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
-import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatDtdDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 

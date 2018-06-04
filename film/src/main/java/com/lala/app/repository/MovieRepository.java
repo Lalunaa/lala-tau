@@ -10,7 +10,6 @@ public interface MovieRepository {
 
 String introduceYourself() throws SQLException;
 
-
 public void createTables() throws SQLException;
 
 public Connection getConnection();
@@ -32,9 +31,6 @@ public int deleteMovie(long id) throws SQLException;
 public int updateMovie(long updateId, Movie newMovie);
 
 public void dropDatatable() throws SQLException;
-
-//public void initDatabase() throws SQLException;
-
 
 }
 
